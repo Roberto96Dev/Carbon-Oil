@@ -1,0 +1,16 @@
+<div class="admin-card">
+  <h3>Gestione Listino Prezzi</h3>
+  
+  <p *ngIf="messaggio" class="alert success">{{ messaggio }}</p>
+
+  <div class="selection-grid">
+    <div *ngFor="let s of serbatoi" class="price-edit-box">
+      <strong>{{ s.tipoCarburante }}</strong>
+      <input type="number" [(ngModel)]="s.prezzoAlLitro" step="0.001">
+     <button class="btn-paga" 
+        (click)="salvaPrezzo(s.id!, s.prezzoAlLitro)">
+    Salva
+</button>
+    </div>
+  </div>
+</div>

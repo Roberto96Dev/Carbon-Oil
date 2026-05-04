@@ -1,0 +1,48 @@
+<div class="self-service-card no-print">
+  <h3>⛽ Seleziona il carburante:</h3>
+
+  <!-- Griglia dei pulsanti carburante -->
+  <div class="fuel-grid">
+    <div *ngFor="let s of serbatoi" 
+         (click)="seleziona(s.tipoCarburante)"
+         [class.selected]="tipoSelezionato === s.tipoCarburante"
+         class="fuel-button">
+      <span class="fuel-name">{{ s.tipoCarburante }}</span>
+      <span class="fuel-price">{{ s.prezzoAlLitro }} €/L</span>
+    </div>
+  </div>
+
+ <div class="payment-section" *ngIf="tipoSelezionato">
+  <p>Stai selezionando: <strong>{{ tipoSelezionato }}</strong></p>
+  <label>Inserisci importo (€):</label>
+  <input type="number" 
+         [(ngModel)]="importoEuro" 
+         placeholder="Inserisci cifra..." 
+         class="form-control">
+  
+  <!-- Pulsante con click su tutta l'area -->
+  <button class="btn-pay" (click)="eseguiPagamento()">
+    Paga e Rifornisci
+  </button>
+</div>
+
+<!-- Messaggio finale corretto -->
+<div *ngIf="messaggioRisposta === 'OK'" class="alert success-banner">
+  <div class="alert-content">
+    <span class="check-icon">✅</span>
+    <div class="details">
+      <p class="main-msg">Rifornimento completato con successo!</p>
+      <p class="sub-msg">
+        Hai erogato <strong>{{ litriErogati | number:'1.2-2' }} litri</strong> 
+        di <strong>{{ tipoErogato }}</strong> 
+        per un totale di <strong>{{ importoErogato | currency:'EUR' }}</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+  <!-- Debug: se i dati non arrivano dal backend -->
+  <p *ngIf="serbatoi.length === 0" class="error-text">
+    Attesa dati dal distributore... (Verifica porta 8085)
+  </p>
+</div>

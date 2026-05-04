@@ -1,0 +1,141 @@
+.admin-container { padding: 20px; font-family: sans-serif; }
+
+.header-admin { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+
+.stats-row { display: flex; gap: 20px; margin-bottom: 30px; }
+.display-2 { font-size: 2.5rem; font-weight: bold; color: #ff8c00; margin: 10px 0; }
+
+.incasso-card {
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.display-1 { font-size: 2.5rem; font-weight: bold; color: #ff8c00; margin: 10px 0; }
+
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th { text-align: left; border-bottom: 2px solid #e67e22; padding: 10px; }
+.admin-table td { padding: 12px 10px; border-bottom: 1px solid #eee; }
+
+.amount { font-size: 2.5rem; font-weight: bold; color: #f1c40f; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  text-align: left;
+  color: var(--medium-grey);
+  border-bottom: 2px solid var(--orange-main);
+  padding: 10px;
+}
+
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+progress { width: 100px; margin-right: 10px; }
+
+input[type="number"] { width: 80px; padding: 5px; }
+
+.btn-update { background: #3498db; color: white; border: none; padding: 8px; cursor: pointer; }
+.btn-refill { background: #27ae60; color: white; border: none; padding: 8px; cursor: pointer; }
+
+.refill-group { display: flex; gap: 5px; }
+
+
+
+/* --- STILI PER LA STAMPA --- */
+@media print {
+  /* 1. Reset generale per la stampa */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  /* 2. Nascondi elementi dell'interfaccia utente non necessari */
+  nav, .header-admin, .btn-print, .login-overlay, .sidebar, 
+  .admin-table, button, .no-print, .fuel-selection-container, .user-interface, .no-print {
+    display: none !important;
+  }
+
+  .prices-summary {
+    display: block !important; /* Assicurati che sia visibile */
+    margin-top: 20px;
+  }
+
+  /* 3. Assicurati che il contenitore del report sia visibile e occupi tutto lo spazio */
+  .admin-container {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* 4. Forza la visualizzazione del report se hai usato classi "print-only" */
+  .print-only-report {
+    display: block !important;
+    position: static !important; /* Non usare absolute per evitare tagli */
+    visibility: visible !important;
+  }
+
+  /* 5. Intestazione del Report */
+  .report-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+  }
+
+  /* 6. Stilizzazione Tabella (Look professionale) */
+  .report-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 10px;
+    page-break-inside: auto; /* Permette alla tabella di dividersi tra le pagine */
+  }
+
+  .report-table tr {
+    page-break-inside: avoid; /* Evita di tagliare una riga a metà */
+    page-break-after: auto;
+  }
+
+  .report-table th {
+    background-color: #eee !important; /* Grigio leggero per testata */
+    -webkit-print-color-adjust: exact; /* Forza il colore di sfondo sui browser Chrome/Edge */
+    color-adjust: exact;
+    border: 1px solid #000;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  .report-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  /* 7. Griglia Prezzi (per renderla orizzontale in stampa) */
+  .price-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* 8. Configurazione Pagina */
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+}

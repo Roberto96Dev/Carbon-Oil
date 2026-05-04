@@ -1,0 +1,20 @@
+.prezzi-container { padding: 20px; background: #f9f9f9; border-radius: 8px; }
+.alert-box { background: #d4edda; color: #155724; padding: 10px; margin-bottom: 10px; border-radius: 4px; }
+
+.grid-prezzi { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+
+.prezzo-card { 
+  background: white; padding: 15px; border: 1px solid #ddd; 
+  border-radius: 8px; display: flex; flex-direction: column; gap: 10px;
+}
+
+.prezzo-card label { font-weight: bold; color: #333; }
+
+.input-group { display: flex; align-items: center; gap: 5px; }
+.input-group input { width: 80px; padding: 5px; }
+
+button { 
+  background-color: #007bff; color: white; border: none; 
+  padding: 8px; cursor: pointer; border-radius: 4px; 
+}
+button:hover { background-color: #0056b3; }
