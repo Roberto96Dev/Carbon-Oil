@@ -10,7 +10,9 @@ CarbonOil è una piattaforma gestionale full-stack progettata per l'automazione 
  
  Metano) con prezzi aggiornati in tempo reale tramite API.Simulazione Erogazione: Calcolo automatico del volume in base al credito 
  
- inserito:$$Litri = \frac{Importo (€)}{Prezzo al Litro (€/L)}$$Ricevuta Digitale: Generazione del riepilogo transazione post-erogazione.
+ inserito
+ 
+ Ricevuta Digitale: Generazione del riepilogo transazione post-erogazione.
 
 
 
